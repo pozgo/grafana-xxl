@@ -1,7 +1,7 @@
 # Grafana XXL
 
-Official Grafana with unofficial datasource plugins: Zabbix, Atlas, Atsd, Bosun, 
-Cloudera manager, Druid Chnocchi, PRTG, Ambari, Dalmatiner DB 
+Official Grafana with unofficial plugins: Zabbix, Dalmatiner DB, Bosun, 
+Cloudera manager, Druid, Atlas, Atsd, Chnocchi, PRTG, Ambari, ... 
 
 Please donate to author, so he can continue to publish another awesome projects 
 for free:
@@ -29,10 +29,10 @@ All options defined in conf/grafana.ini can be overriden using environment varia
 # Included plugins
 
 - [zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
+- [dalmatinerdb](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
 - [atlas, atsd, bosun, clouderamanager, druid, gnocchi](https://github.com/grafana/grafana-plugins)
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
 - [ambari](https://github.com/u39kun/ambari-grafana)
-- [dalmatinerdb](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
 
 Please report any plugin issues directly to the author. 
 
