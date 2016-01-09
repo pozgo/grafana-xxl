@@ -1,7 +1,12 @@
 # Grafana XXL
 
 Official Grafana with unofficial plugins: Zabbix, Dalmatiner DB, Bosun, 
-Cloudera manager, Druid, Atlas, Atsd, Chnocchi, PRTG, Ambari, ... 
+Cloudera manager, Druid, Atlas, Atsd, Chnocchi, PRTG, Ambari, ...
+
+Official inbuilt plugins: Graphite, InfluxDB, Open TSDB, AWS Cloudwatch, 
+Elasticsearch, Grafana, mixed, Prometheus, SQL, KairosDB
+
+![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources.png)  
 
 Please donate to author, so he can continue to publish another awesome projects 
 for free:
@@ -17,7 +22,7 @@ Start your image binding the external port 3000.
 
 Try it out, default admin user is admin/admin.
 
-#Configuring your Grafana container
+# Configuring your Grafana container
 
 All options defined in conf/grafana.ini can be overriden using environment variables, for example:
 

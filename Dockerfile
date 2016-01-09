@@ -37,9 +37,11 @@ RUN \
   #git clone https://github.com/br0th3r/grafana2-kairosdb-datasource-plugin && \
   #mv /tmp/grafana2-kairosdb-datasource-plugin/kairosdb/ /usr/share/grafana/public/app/plugins/datasource/ && \
   #rm -rf /tmp/grafana2-kairosdb-datasource-plugin && \
-  # branding && \
+  ### branding && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.html && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/500.html && \
-  sed -i 's#logo_transparent_200x75.png">#logo_transparent_200x75.png"><br />Grafana XXL<br /><small><a href="http://www.monitoringartist.com" target="_blank">Customized by Monitoring Artist</a></small>#g' /usr/share/grafana/public/app/partials/login.html && \  
+  sed -i 's#logo_transparent_200x75.png">#logo_transparent_200x75.png"><br />Grafana XXL<br /><small><a href="http://www.monitoringartist.com" target="_blank">Customized by Monitoring Artist</a></small>#g' /usr/share/grafana/public/app/partials/login.html && \
+  sed -i 's#logo_transparent_200x75.png">#logo_transparent_200x75.png"><br />Grafana XXL<br /><small><a href="http://www.monitoringartist.com" target="_blank">Customized by Monitoring Artist</a></small>#g' /usr/share/grafana/public/app/app.js && \
+  sed -i 's#logo_transparent_200x75.png">#logo_transparent_200x75.png"><br />Grafana XXL<br /><small><a href="http://www.monitoringartist.com" target="_blank">Customized by Monitoring Artist</a></small>#g' /usr/share/grafana/public/app/app.*.js && \  
   apt-get autoremove -y git && \
   apt-get clean
