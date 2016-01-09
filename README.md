@@ -13,20 +13,22 @@ for free:
 
 Start your image binding the external port 3000.
 
-    docker run -i -p 3000:3000 monitoringartist/grafana-xxl
+    docker run -d -p 3000:3000 monitoringartist/grafana-xxl
 
-Try it out, default admin user is admin/secret.
+Try it out, default admin user is admin/admin.
 
 #Configuring your Grafana container
 
 All options defined in conf/grafana.ini can be overriden using environment variables, for example:
 
-    docker run -i -p 3000:3000 \
+    docker run -d -p 3000:3000 \
       -e "GF_SERVER_ROOT_URL=http://grafana.server.name"  \
       -e "GF_SECURITY_ADMIN_PASSWORD=secret  \
       monitoringartist/grafana-xxl
 
-# Included plugins
+# Included plugins 
+
+See plugin projects also for documentation:
 
 - [zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
 - [dalmatinerdb](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
