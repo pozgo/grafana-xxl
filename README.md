@@ -18,7 +18,7 @@ for free:
 
 Start your image binding the external port 3000:
 
-    docker run --name=grafana-xxl -d -p 3000:3000 monitoringartist/grafana-xxl
+    docker run -d --name=grafana-xxl -p 3000:3000 monitoringartist/grafana-xxl
 
 Try it out, default admin user is admin/admin.
 
@@ -48,11 +48,12 @@ variables, for example:
       --volumes-from grafana-xxl-storage \
       monitoringartist/grafana-xxl
 
-## Start specific version of Grafana XXL
+## Running specific version of Grafana XXL
 
     # specify right tag, e.g. 2.6.0 - see Docker Hub for available tags
     docker run \
       -d \
+      -p 3000:3000 \
       --name grafana-xxl \
       monitoringartist/grafana-xxl:2.6.0
 
