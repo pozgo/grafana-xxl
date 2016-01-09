@@ -68,6 +68,11 @@ See plugin projects also for documentation:
 
 Please report any plugin issues directly to the author.
 
+## Supported monitoring services
+ 
+- [Raintank](http://raintank.io/docs/litmus/raintank-datasource/)
+- [Hawkular](http://www.hawkular.org/docs/components/metrics/grafana_integration.html)
+
 # Author
 
 [Devops Monitoring zExpert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring'), who loves monitoring
