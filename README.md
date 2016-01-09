@@ -29,7 +29,7 @@ All options defined in conf/grafana.ini can be overriden using environment varia
 # Included plugins
 
 - [zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
-- [atlas atsd bosun clouderamanager druid gnocchi](https://github.com/grafana/grafana-plugins)
+- [atlas, atsd, bosun, clouderamanager, druid, gnocchi](https://github.com/grafana/grafana-plugins)
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
 - [ambari](https://github.com/u39kun/ambari-grafana)
 - [dalmatinerdb](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
