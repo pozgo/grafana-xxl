@@ -1,10 +1,10 @@
 # Grafana XXL
 
-Official Grafana with unofficial plugins: Zabbix, Dalmatiner DB, Bosun,
-Cloudera manager, Druid, Atlas, Atsd, Chnocchi, PRTG, Ambari, ...
+Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
+Cloudera Manager, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
 
-Official inbuilt plugins: Graphite, InfluxDB, Open TSDB, AWS Cloudwatch,
-Elasticsearch, Grafana, mixed, Prometheus, SQL, KairosDB
+Official inbuilt plugins: Graphite, InfluxDB, OpenTSDB, CloudWatch,
+Elasticsearch, Grafana, Prometheus, SQL, KairosDB.
 
 ![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources.png)
 
@@ -60,11 +60,11 @@ variables, for example:
 
 See plugin projects also for documentation:
 
-- [zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
-- [dalmatinerdb](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
-- [atlas, atsd, bosun, clouderamanager, druid, gnocchi](https://github.com/grafana/grafana-plugins)
+- [Zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
+- [DalmatinerDB](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
+- [Atsd, Bosun, Cloudera Manager, Druid, Gnocchi](https://github.com/grafana/grafana-plugins)
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
-- [ambari](https://github.com/u39kun/ambari-grafana)
+- [Ambari](https://github.com/u39kun/ambari-grafana)
 
 Please report any plugin issues directly to the author.
 
