@@ -1,38 +1,62 @@
 # Grafana XXL
 
-Official Grafana with unofficial plugins: Zabbix, Dalmatiner DB, Bosun, 
+Official Grafana with unofficial plugins: Zabbix, Dalmatiner DB, Bosun,
 Cloudera manager, Druid, Atlas, Atsd, Chnocchi, PRTG, Ambari, ...
 
-Official inbuilt plugins: Graphite, InfluxDB, Open TSDB, AWS Cloudwatch, 
+Official inbuilt plugins: Graphite, InfluxDB, Open TSDB, AWS Cloudwatch,
 Elasticsearch, Grafana, mixed, Prometheus, SQL, KairosDB
 
-![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources.png)  
+![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources.png)
 
-Please donate to author, so he can continue to publish another awesome projects 
+Please donate to author, so he can continue to publish another awesome projects
 for free:
 
 [![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)]
 (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
 
-# Running your Grafana XXL image
+# Running your Grafana XXL Docker image
 
-Start your image binding the external port 3000.
+Start your image binding the external port 3000:
 
     docker run --name=grafana-xxl -d -p 3000:3000 monitoringartist/grafana-xxl
 
 Try it out, default admin user is admin/admin.
 
-# Configuring your Grafana container
+## Configuring your Grafana container
 
-All options defined in conf/grafana.ini can be overriden using environment variables, for example:
+All options defined in conf/grafana.ini can be overriden using environment
+variables, for example:
 
-    docker run -d -p 3000:3000 \
-      --name=grafana-xxl
-      -e "GF_SERVER_ROOT_URL=http://grafana.server.name"  \
-      -e "GF_SECURITY_ADMIN_PASSWORD=secret  \
+    docker run \
+      -d \
+      -p 3000:3000 \
+      --name=grafana-xxl \
+      -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
+      -e "GF_SECURITY_ADMIN_PASSWORD=secret \
       monitoringartist/grafana-xxl
 
-# Included plugins 
+## Grafana XXL with persistent storage (recommended)
+
+    # create /var/lib/grafana as persistent volume storage
+    docker run -d -v /var/lib/grafana --name grafana-xxl-storage busybox:latest
+
+    # start grafana-xxl
+    docker run \
+        -d \
+        -p 3000:3000 \
+        --name grafana-xxl \
+        --volumes-from grafana-xxl-storage \
+        monitoringartist/grafana-xxl
+
+## Start specific version of Grafana XXL
+
+    # specify right tag, e.g. 2.6.0 - see Docker Hub for available tags
+    docker run \
+        -d \
+        --name grafana-xxl \
+        monitoringartist/grafana-xxl:2.6.0
+
+# Included plugins
 
 See plugin projects also for documentation:
 
@@ -42,11 +66,11 @@ See plugin projects also for documentation:
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
 - [ambari](https://github.com/u39kun/ambari-grafana)
 
-Please report any plugin issues directly to the author. 
+Please report any plugin issues directly to the author.
 
 # Author
 
-[Devops Monitoring zExpert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring'), who loves monitoring 
+[Devops Monitoring zExpert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring'), who loves monitoring
 systems, which start with letter Z. Those are Zabbix and Zenoss.
 
 Professional monitoring services:
