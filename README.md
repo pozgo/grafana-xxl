@@ -1,6 +1,7 @@
 # Grafana XXL
 
-<img align="right" src="https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl.png">
+<img align="right" src="https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl.png" width="180">
+
 Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
 Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
 
