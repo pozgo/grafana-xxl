@@ -1,7 +1,8 @@
 # Grafana XXL
 
+<img align="right" src="https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl.png">
 Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
-Cloudera Manager, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
+Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
 
 Official inbuilt plugins: Graphite, InfluxDB, OpenTSDB, CloudWatch,
 Elasticsearch, Grafana, Prometheus, SQL, KairosDB.
@@ -66,13 +67,14 @@ See plugin projects also for documentation:
 - [Atsd, Bosun, Cloudera Manager, Druid, Gnocchi](https://github.com/grafana/grafana-plugins)
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
 - [Ambari](https://github.com/u39kun/ambari-grafana)
+- [OpenNMS](https://github.com/OpenNMS/grafana)
 
 Please report any plugin issues directly to the author.
 
 ## Supported monitoring services
  
-- [Raintank](http://raintank.io/docs/litmus/raintank-datasource/)
 - [Hawkular](http://www.hawkular.org/docs/components/metrics/grafana_integration.html)
+- [Raintank](http://raintank.io/docs/litmus/raintank-datasource/)
 
 # Author
 
