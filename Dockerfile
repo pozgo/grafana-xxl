@@ -18,9 +18,9 @@ RUN \
   curl -L https://github.com/tianon/gosu/releases/download/1.5/gosu-amd64 > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
   ### plugin pie chart - ignored in 2.6 ###
-  git clone https://github.com/grafana/panel-plugin-piechart.git /usr/local/src/panel-plugin-piechart && \
-  echo '[plugin.piechart]' >> /etc/grafana/grafana.ini && \
-  echo 'path = /usr/local/src/panel-plugin-piechart' >> /etc/grafana/grafana.ini && \
+  #git clone https://github.com/grafana/panel-plugin-piechart.git /usr/local/src/panel-plugin-piechart && \
+  #echo '[plugin.piechart]' >> /etc/grafana/grafana.ini && \
+  #echo 'path = /usr/local/src/panel-plugin-piechart' >> /etc/grafana/grafana.ini && \
   ### zabbix ### && \
   git clone https://github.com/alexanderzobnin/grafana-zabbix /tmp/grafana-zabbix && \
   mv /tmp/grafana-zabbix/zabbix/ /usr/share/grafana/public/app/plugins/datasource/ && \
