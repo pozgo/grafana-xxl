@@ -1,7 +1,5 @@
 # Grafana XXL
 
-<img align="right" src="https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl.png" width="180">
-
 Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
 Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
 
@@ -13,8 +11,7 @@ Elasticsearch, Grafana, Prometheus, SQL, KairosDB.
 Please donate to author, so he can continue to publish another awesome projects
 for free:
 
-[![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)]
-(https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
+[![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
 
 # Running your Grafana XXL Docker image
 
@@ -84,5 +81,4 @@ systems, which start with letter Z. Those are Zabbix and Zenoss.
 
 Professional monitoring services:
 
-[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)]
-(http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring')
+[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring')
