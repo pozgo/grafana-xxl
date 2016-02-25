@@ -1,4 +1,4 @@
-# Grafana XXL
+# Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
 
 Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
 Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
@@ -21,19 +21,6 @@ Start your image binding the external port 3000:
 
 Try it out, default admin user is admin/admin.
 
-## Configuring your Grafana container
-
-All options defined in conf/grafana.ini can be overriden using environment
-variables, for example:
-
-    docker run \
-      -d \
-      -p 3000:3000 \
-      --name=grafana-xxl \
-      -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
-      -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
-      monitoringartist/grafana-xxl
-
 ## Grafana XXL with persistent storage (recommended)
 
     # create /var/lib/grafana as persistent volume storage
@@ -55,7 +42,20 @@ variables, for example:
       -p 3000:3000 \
       --name grafana-xxl \
       monitoringartist/grafana-xxl:2.6.0
+      
+## Configuring your Grafana container
 
+All options defined in conf/grafana.ini can be overriden using environment
+variables, for example:
+
+    docker run \
+      -d \
+      -p 3000:3000 \
+      --name=grafana-xxl \
+      -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
+      -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
+      monitoringartist/grafana-xxl
+      
 # Included plugins
 
 See plugin projects also for documentation:
@@ -73,6 +73,14 @@ Please report any plugin issues directly to the author.
  
 - [Hawkular](http://www.hawkular.org/docs/components/metrics/grafana_integration.html)
 - [Raintank](http://raintank.io/docs/litmus/raintank-datasource/)
+
+Integrations
+============
+
+* [Puppet for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/puppet.md)
+* [Ansible for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/ansible.md)
+* [docker-compose for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/docker-compose.yml)
+
 
 # Author
 
