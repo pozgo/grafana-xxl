@@ -31,7 +31,7 @@ variables, for example:
       -p 3000:3000 \
       --name=grafana-xxl \
       -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
-      -e "GF_SECURITY_ADMIN_PASSWORD=secret \
+      -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
       monitoringartist/grafana-xxl
 
 ## Grafana XXL with persistent storage (recommended)
