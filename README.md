@@ -61,6 +61,7 @@ variables, for example:
 See plugin projects also for documentation:
 
 - [Zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
+- [Dataloop](https://github.com/dataloop/grafana-plugin)
 - [DalmatinerDB](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
 - [Atsd, Bosun, Cloudera Manager, Druid, Gnocchi](https://github.com/grafana/grafana-plugins)
 - [PRTG](https://github.com/neuralfraud/grafana-prtg)
