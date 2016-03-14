@@ -25,6 +25,9 @@ RUN \
   git clone https://github.com/alexanderzobnin/grafana-zabbix /tmp/grafana-zabbix && \
   mv /tmp/grafana-zabbix/zabbix/ /usr/share/grafana/public/app/plugins/datasource/ && \
   rm -rf /tmp/grafana-zabbix/ && \
+  ### dataloop ### && \
+  git clone https://github.com/dataloop/grafana-plugin /usr/share/grafana/public/app/plugins/datasource/dataloop && \
+  rm -rf /usr/share/grafana/public/app/plugins/datasource/dataloop/.git && \
   ### atlas atsd bosun clouderamanager druid gnocchi ### && \
   git clone https://github.com/grafana/grafana-plugins /tmp/grafana-plugins && \
   rm -rf /tmp/grafana-plugins/datasources/zabbix && \
