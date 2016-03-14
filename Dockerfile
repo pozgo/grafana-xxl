@@ -15,7 +15,7 @@ RUN \
   curl https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm /tmp/grafana.deb && \
-  curl -L https://github.com/tianon/gosu/releases/download/1.5/gosu-amd64 > /usr/sbin/gosu && \
+  curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
   ### plugin pie chart - ignored in 2.6 ###
   #git clone https://github.com/grafana/panel-plugin-piechart.git /usr/local/src/panel-plugin-piechart && \
