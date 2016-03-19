@@ -1,5 +1,8 @@
 # Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
 
+**Hot tip: [branch 3.0](https://github.com/monitoringartist/grafana-xxl/tree/3.0)
+contains dev preview of Grafana 3.0 with some supported plugins, panels and apps.** 
+
 Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
 Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
 
