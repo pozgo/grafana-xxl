@@ -74,23 +74,20 @@ Supported variables:
 - `GF_AWS_${profile}_REGION`: AWS region (optional).
 
 
-## Upgrade all plugins
+## Auto upgrade plugins
 
-If yout want to upgrade all installed plugins in the container before Grafana start, please use
-environment variable `-e UPGRADEALL=true`.
+Container tries to upgrade all installed plugins in the container automatically before Grafana start. If you want to disable this behaviour, please use environment variable `-e UPGRADEALL=false`.
       
 ## Supported monitoring services
  
 - [Hawkular](http://www.hawkular.org/docs/components/metrics/grafana_integration.html)
 - [Raintank](http://raintank.io/docs/litmus/raintank-datasource/)
 
-Integrations
-============
+# Integrations
 
 * [Puppet for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/puppet.md)
 * [Ansible for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/ansible.md)
 * [docker-compose for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/docker-compose.yml)
-
 
 # Author
 

@@ -26,7 +26,7 @@ if [ ! -z ${GF_AWS_PROFILES+x} ]; then
 fi
 
 # upgrade all installed plugins
-if [ ! -z ${UPGRADEALL} ]; then
+if [ "$UPGRADEALL" = true ] ; then
     grafana-cli --pluginsDir "${GF_PATH_PLUGINS}" plugins upgrade-all || true
 fi
 

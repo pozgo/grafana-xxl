@@ -3,7 +3,8 @@ MAINTAINER Jan Garaj info@monitoringartist.com
 
 ENV \
   GRAFANA_VERSION=3.0.1 \
-  GF_PATH_PLUGINS=/grafana-plugins
+  GF_PATH_PLUGINS=/grafana-plugins \
+  UPGRADEALL=true
 
 COPY ./run.sh /run.sh
 
