@@ -3,9 +3,6 @@
 chown -R grafana:grafana /var/lib/grafana /var/log/grafana
 
 if [ ! -z ${GF_AWS_PROFILES+x} ]; then
-    mkdir -p ~grafana/.aws/
-    touch ~grafana/.aws/credentials
-
     for profile in ${GF_AWS_PROFILES}; do
         access_key_varname="GF_AWS_${profile}_ACCESS_KEY_ID"
         secret_key_varname="GF_AWS_${profile}_SECRET_ACCESS_KEY"
@@ -27,7 +24,7 @@ fi
 
 # upgrade all installed plugins
 if [ "$UPGRADEALL" = true ] ; then
-    grafana-cli --pluginsDir "${GF_PATH_PLUGINS}" plugins upgrade-all || true
+    grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins upgrade-all || true
 fi
 
 exec gosu grafana /usr/sbin/grafana-server \
@@ -35,4 +32,4 @@ exec gosu grafana /usr/sbin/grafana-server \
   --config=/etc/grafana/grafana.ini        \
   cfg:default.paths.data=/var/lib/grafana  \
   cfg:default.paths.logs=/var/log/grafana  \
-  cfg:default.paths.plugins=${GF_PATH_PLUGINS}
+  cfg:default.paths.plugins=${GF_PLUGIN_DIR}

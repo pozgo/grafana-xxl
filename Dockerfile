@@ -3,7 +3,7 @@ MAINTAINER Jan Garaj info@monitoringartist.com
 
 ENV \
   GRAFANA_VERSION=3.0.1 \
-  GF_PATH_PLUGINS=/grafana-plugins \
+  GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
 COPY ./run.sh /run.sh
@@ -16,9 +16,9 @@ RUN \
   rm /tmp/grafana.deb && \
   curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
-  for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PATH_PLUGINS}" plugins install $plugin; done && \
+  for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   ### aion && \
-  git clone https://github.com/FlukeNetworks/grafana-datasource-aion  $GF_PATH_PLUGINS/aion-datasource && \
+  git clone https://github.com/FlukeNetworks/grafana-datasource-aion  $GF_PLUGIN_DIR/aion-datasource && \
   ### branding && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.html && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/500.html && \
@@ -33,6 +33,8 @@ RUN \
   sed -i 's#icon-gf-grafana_wordmark"></i>#icon-gf-grafana_wordmark"> XXL</i>#g' /usr/share/grafana/public/app/partials/login.html && \
   sed -i 's#icon-gf-grafana_wordmark"></i>#icon-gf-grafana_wordmark"> XXL</i>#g' /usr/share/grafana/public/app/partials/reset_password.html && \
   chmod +x /run.sh && \
+  mkdir -p /usr/share/grafana/.aws/ && \
+  touch /usr/share/grafana/.aws/credentials && \
   apt-get remove -y --force-yes curl git jq && \
   apt-get autoremove -y --force-yes && \
   apt-get clean && \
