@@ -2,8 +2,7 @@
 
 Official Grafana 3.0 with all preinstalled plugins from https://grafana.net/plugins.
 
-![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-3.0-datasources.png)
-![Grafana XXL plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-3.0-plugins.png)
+![Grafana 3.0 XXL datasources and plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-3.0-datasources-plugins.png)
 
 Please donate to author, so he can continue to publish another awesome projects
 for free:
