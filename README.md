@@ -1,13 +1,6 @@
 # Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
 
-**Hot tip: [branch 3.0](https://github.com/monitoringartist/grafana-xxl/tree/3.0)
-contains dev preview of Grafana 3.0 with some supported plugins, panels and apps.** 
-
-Official Grafana with unofficial plugins: Zabbix, DalmatinerDB, Bosun,
-Cloudera Manager, OpenNMS, Druid, Atsd, Chnocchi, PRTG, Ambari, ...
-
-Official inbuilt plugins: Graphite, InfluxDB, OpenTSDB, CloudWatch,
-Elasticsearch, Grafana, Prometheus, SQL, KairosDB.
+Official Grafana 3.0 with all preinstalled plugins from https://grafana.net/plugins.
 
 ![Grafana XXL datasources](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources.png)
 
@@ -16,7 +9,7 @@ for free:
 
 [![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
 
-# Running your Grafana XXL Docker image
+# Running your Grafana 3.0 XXL Docker image
 
 Start your image binding the external port 3000:
 
@@ -35,7 +28,7 @@ Try it out, default admin user is admin/admin.
       -p 3000:3000 \
       --name grafana-xxl \
       --volumes-from grafana-xxl-storage \
-      monitoringartist/grafana-xxl
+      monitoringartist/grafana-xxl:latest
 
 ## Running specific version of Grafana XXL
 
@@ -57,22 +50,35 @@ variables, for example:
       --name=grafana-xxl \
       -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
       -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
-      monitoringartist/grafana-xxl
+      monitoringartist/grafana-xxl:latest
+
+## Configuring AWS credentials for CloudWatch support (only Grafana 3.0)
+
+    docker run \
+      -d \
+      -p 3000:3000 \
+      --name=grafana-xxl \
+      -e "GF_AWS_PROFILES=default" \
+      -e "GF_AWS_default_ACCESS_KEY_ID=YOUR_ACCESS_KEY" \
+      -e "GF_AWS_default_SECRET_ACCESS_KEY=YOUR_SECRET_KEY" \
+      -e "GF_AWS_default_REGION=eu-west-1" \
+      monitoringartist/grafana-xxl:latest
+
+You may also specify multiple profiles to `GF_AWS_PROFILES` (e.g.
+`GF_AWS_PROFILES=default another`).
+
+Supported variables:
+
+- `GF_AWS_${profile}_ACCESS_KEY_ID`: AWS access key ID (required).
+- `GF_AWS_${profile}_SECRET_ACCESS_KEY`: AWS secret access  key (required).
+- `GF_AWS_${profile}_REGION`: AWS region (optional).
+
+
+## Upgrade all plugins
+
+If yout want to upgrade all installed plugins in the container before Grafana start, please use
+environment variable `-e UPGRADEALL=true`.
       
-# Included plugins
-
-See plugin projects also for documentation:
-
-- [Zabbix](https://github.com/alexanderzobnin/grafana-zabbix)
-- [Dataloop](https://github.com/dataloop/grafana-plugin)
-- [DalmatinerDB](https://github.com/dalmatinerdb/dalmatiner-grafana-plugin)
-- [Atsd, Bosun, Cloudera Manager, Druid, Gnocchi](https://github.com/grafana/grafana-plugins)
-- [PRTG](https://github.com/neuralfraud/grafana-prtg)
-- [Ambari](https://github.com/u39kun/ambari-grafana)
-- [OpenNMS](https://github.com/OpenNMS/grafana)
-
-Please report any plugin issues directly to the author.
-
 ## Supported monitoring services
  
 - [Hawkular](http://www.hawkular.org/docs/components/metrics/grafana_integration.html)
