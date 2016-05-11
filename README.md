@@ -13,7 +13,7 @@ for free:
 
 Start your image binding the external port 3000:
 
-    docker run -d --name=grafana-xxl -p 3000:3000 monitoringartist/grafana-xxl
+    docker run -d --name=grafana-xxl -p 3000:3000 monitoringartist/grafana-xxl:latest
 
 Try it out, default admin user is admin/admin.
 
@@ -32,12 +32,12 @@ Try it out, default admin user is admin/admin.
 
 ## Running specific version of Grafana XXL
 
-    # specify right tag, e.g. 2.6.0 - see Docker Hub for available tags
+    # specify right tag, e.g. 2.6 - see Docker Hub for available tags
     docker run \
       -d \
       -p 3000:3000 \
       --name grafana-xxl \
-      monitoringartist/grafana-xxl:2.6.0
+      monitoringartist/grafana-xxl:2.6
       
 ## Configuring your Grafana container
 
@@ -69,10 +69,10 @@ You may also specify multiple profiles to `GF_AWS_PROFILES` (e.g.
 
 Supported variables:
 
+- `GF_AWS_PROFILES`: list of AWS profiles for Cloudwatch datasource
 - `GF_AWS_${profile}_ACCESS_KEY_ID`: AWS access key ID (required).
 - `GF_AWS_${profile}_SECRET_ACCESS_KEY`: AWS secret access  key (required).
 - `GF_AWS_${profile}_REGION`: AWS region (optional).
-
 
 ## Auto upgrade plugins
 
