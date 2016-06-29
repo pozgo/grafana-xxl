@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ENV \
-  GRAFANA_VERSION=3.0.4-1464167696 \
+  GRAFANA_VERSION=3.1.0-1466666977beta1 \
   GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
