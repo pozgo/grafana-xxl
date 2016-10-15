@@ -1,8 +1,9 @@
 FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
+### GRAFANA_VERSION=latest = nightly build
 ENV \
-  GRAFANA_VERSION=3.1.1-1470047149 \
+  GRAFANA_VERSION=latest \
   GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
