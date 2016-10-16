@@ -1,6 +1,6 @@
 # Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
 
-Official Grafana 3.0 with all preinstalled plugins from https://grafana.net/plugins.
+Official Grafana with all preinstalled plugins from https://grafana.net/plugins.
 
 ![Grafana XXL datasources and plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources-plugins.png)
 
@@ -9,7 +9,7 @@ for free:
 
 [![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
 
-# Running your Grafana 3.0 XXL Docker image
+# Running your Grafana XXL Docker image
 
 Start your image binding the external port 3000:
 
@@ -32,12 +32,12 @@ Try it out, default admin user is admin/admin.
 
 ## Running specific version of Grafana XXL
 
-    # specify right tag, e.g. 2.6 - see Docker Hub for available tags
+    # specify right tag, e.g. 2.6,3.1,dev (latest nigthly build) - see Docker Hub for available tags
     docker run \
       -d \
       -p 3000:3000 \
       --name grafana-xxl \
-      monitoringartist/grafana-xxl:2.6
+      monitoringartist/grafana-xxl:dev
       
 ## Configuring your Grafana container
 
@@ -52,7 +52,7 @@ variables, for example:
       -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
       monitoringartist/grafana-xxl:latest
 
-## Configuring AWS credentials for CloudWatch support (only Grafana 3.0)
+## Configuring AWS credentials for CloudWatch support (only Grafana 3.+)
 
     docker run \
       -d \
@@ -89,11 +89,13 @@ Container tries to upgrade all installed plugins in the container automatically 
 * [Ansible for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/ansible.md)
 * [docker-compose for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/docker-compose.yml)
 
-# Author
 
-[Devops Monitoring zExpert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring'), who loves monitoring
-systems, which start with letter Z. Those are Zabbix and Zenoss.
+#  Author
 
-Professional monitoring services:
+[Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
+who loves monitoring systems, which start with letter Z. Those are Zabbix and Zenoss.
 
-[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring')
+Professional devops / monitoring services:
+
+[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)]
+(http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
