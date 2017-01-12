@@ -3,7 +3,7 @@ MAINTAINER Jan Garaj info@monitoringartist.com
 
 ### GRAFANA_VERSION=latest = nightly build
 ENV \
-  GRAFANA_VERSION=4.1.0-1484127817 \
+  GRAFANA_VERSION=4.1.1-1484211277 \
   GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
