@@ -5,6 +5,8 @@ MAINTAINER Jan Garaj info@monitoringartist.com
 ENV \
   GRAFANA_VERSION=4.0.2-1481203731 \
   GF_PLUGIN_DIR=/grafana-plugins \
+  GF_PATHS_LOGS=/var/log/grafana \
+  GF_PATHS_DATA=/var/lib/grafana \
   UPGRADEALL=true
 
 COPY ./run.sh /run.sh
@@ -14,12 +16,10 @@ RUN \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
   curl https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
-  rm /tmp/grafana.deb && \
-  curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
+  rm -f /tmp/grafana.deb && \
+  curl -L https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
   for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
-  ### aion && \
-  git clone https://github.com/FlukeNetworks/grafana-datasource-aion  $GF_PLUGIN_DIR/aion-datasource && \
   ### branding && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.html && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/500.html && \
