@@ -5,6 +5,8 @@ MAINTAINER Jan Garaj info@monitoringartist.com
 ENV \
   GRAFANA_VERSION=4.1.1-1484211277 \
   GF_PLUGIN_DIR=/grafana-plugins \
+  GF_PATHS_LOGS=/var/log/grafana \
+  GF_PATHS_DATA=/var/lib/grafana \
   UPGRADEALL=true
 
 COPY ./run.sh /run.sh

@@ -1,6 +1,10 @@
-# Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
+[<img src="https://monitoringartist.github.io/managed-by-monitoringartist.png" alt="Managed by Monitoring Artist: DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring" align="right"/>](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
 
-Official Grafana with all preinstalled plugins from https://grafana.net/plugins.
+# Grafana XXL
+
+[![DockerHub pulls](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Pulls)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![GitHub stars](https://img.shields.io/github/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=GitHub%20Stars)](https://github.com/monitoringartist/grafana-xxl) [![DockerHub stars](https://img.shields.io/docker/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Stars)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![Commercial support ready](https://img.shields.io/badge/Commercial support-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
+
+Dockerized Grafana with all preinstalled plugins from https://grafana.net/plugins.
 
 ![Grafana XXL datasources and plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources-plugins.png)
 
@@ -42,7 +46,7 @@ Try it out, default admin user is admin/admin.
 ## Configuring your Grafana container
 
 All options defined in conf/grafana.ini can be overriden using environment
-variables, for example:
+variables by using the syntax GF_<SectionName>_<KeyName>. For example:
 
     docker run \
       -d \
@@ -51,6 +55,8 @@ variables, for example:
       -e "GF_SERVER_ROOT_URL=http://grafana.server.name" \
       -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
       monitoringartist/grafana-xxl:latest
+
+More information in the grafana configuration documentation: http://docs.grafana.org/installation/configuration/
 
 ## Configuring AWS credentials for CloudWatch support (only Grafana 3.+)
 
@@ -89,7 +95,6 @@ Container tries to upgrade all installed plugins in the container automatically 
 * [Ansible for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/ansible.md)
 * [docker-compose for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/docker-compose.yml)
 
-
 #  Author
 
 [Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
@@ -97,5 +102,4 @@ who loves monitoring systems, which start with letter Z. Those are Zabbix and Ze
 
 Professional devops / monitoring services:
 
-[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)]
-(http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
+[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
