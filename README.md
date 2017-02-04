@@ -1,5 +1,3 @@
-[<img src="https://monitoringartist.github.io/managed-by-monitoringartist.png" alt="Managed by Monitoring Artist: DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring" align="right"/>](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
-
 # Grafana XXL
 
 [![DockerHub pulls](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Pulls)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![GitHub stars](https://img.shields.io/github/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=GitHub%20Stars)](https://github.com/monitoringartist/grafana-xxl) [![DockerHub stars](https://img.shields.io/docker/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Stars)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![Commercial support ready](https://img.shields.io/badge/Commercial support-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
