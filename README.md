@@ -93,11 +93,18 @@ Container tries to upgrade all installed plugins in the container automatically 
 * [Ansible for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/ansible.md)
 * [docker-compose for dockerized grafana-xxl](https://github.com/monitoringartist/grafana-xxl/blob/master/docker-compose.yml)
 
-#  Author
+# Author
 
 [Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
-who loves monitoring systems, which start with letter Z. Those are Zabbix and Zenoss.
+who loves monitoring systems and cutting/bleeding edge technologies: Docker,
+Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsearch,
+Kibana, Prometheus, Sysdig, ...
 
-Professional devops / monitoring services:
+Summary:
+* 1000+ [GitHub](https://github.com/monitoringartist/) stars
+* 6000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 800 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
+
+Professional devops / monitoring / consulting services:
 
 [![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
