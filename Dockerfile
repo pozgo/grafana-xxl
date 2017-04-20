@@ -45,7 +45,7 @@ RUN sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/gr
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*  
 
-#VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
+VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 
 EXPOSE 3000
 
