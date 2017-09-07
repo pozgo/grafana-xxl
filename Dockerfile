@@ -1,9 +1,8 @@
 FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
-### GRAFANA_VERSION=latest = nightly build
 ENV \
-  GRAFANA_VERSION=latest \
+  GRAFANA_VERSION=4.5.0-beta1 \
   GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
@@ -12,7 +11,7 @@ COPY ./run.sh /run.sh
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
-  curl https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
+  curl https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm /tmp/grafana.deb && \
   curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
