@@ -41,6 +41,23 @@ Try it out, default admin user is admin/admin.
       --name grafana-xxl \
       monitoringartist/grafana-xxl:dev
       
+## Building Grafana XXL for ARM
+
+You need ARM-version Grafana's deb (for example from [here](https://github.com/fg2it/grafana-on-raspberry/releases)).
+Also you need ARM-version of gosu (from [here](https://github.com/tianon/gosu/releases))
+
+    # armhf
+    docker build \
+      --tag grafana-xxl \
+      --build-arg GRAFANA_DEB_URL=https://github.com/fg2it/grafana-on-raspberry/releases/download/v5.0.4/grafana_5.0.4_armhf.deb \
+      --build-arg GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-armhf .
+
+    # arm64
+    docker build \
+      --tag grafana-xxl \
+      --build-arg GRAFANA_DEB_URL=https://github.com/fg2it/grafana-on-raspberry/releases/download/v5.0.4/grafana_5.0.4_arm64.deb \
+      --build-arg GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-arm64 .
+
 ## Configuring your Grafana container
 
 All options defined in conf/grafana.ini can be overriden using environment
