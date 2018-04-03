@@ -1,9 +1,17 @@
 FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
+ARG GRAFANA_ARCHITECTURE=amd64
+ARG GRAFANA_VERSION=5.0.4
+ARG GRAFANA_DEB_URL=https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${GRAFANA_VERSION}_${GRAFANA_ARCHITECTURE}.deb
+ARG GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-${GRAFANA_ARCHITECTURE}
+
 ### GRAFANA_VERSION=latest = nightly build
 ENV \
-  GRAFANA_VERSION=5.0.3 \
+  GRAFANA_ARCHITECTURE=${GRAFANA_ARCHITECTURE} \
+  GRAFANA_VERSION=${GRAFANA_VERSION} \
+  GRAFANA_DEB_URL=${GRAFANA_DEB_URL} \
+  GOSU_BIN_URL=${GOSU_BIN_URL} \
   GF_PLUGIN_DIR=/grafana-plugins \
   GF_PATHS_LOGS=/var/log/grafana \
   GF_PATHS_DATA=/var/lib/grafana \
@@ -14,10 +22,10 @@ COPY ./run.sh /run.sh
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
-  curl https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
+  curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
-  curl -L https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 > /usr/sbin/gosu && \
+  curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
   for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   ### branding && \
