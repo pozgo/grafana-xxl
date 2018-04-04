@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:xenial
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
@@ -21,7 +21,7 @@ COPY ./run.sh /run.sh
 
 RUN \
   apt-get update && \
-  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
+  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq apt-utils && \
   curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
