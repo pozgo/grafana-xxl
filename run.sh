@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chown -R grafana:grafana /var/lib/grafana /var/log/grafana
+chown -R grafana:grafana /var/lib/grafana /var/log/grafana /etc/grafana/grafana.ini
 
 if [ ! -z ${GF_AWS_PROFILES+x} ]; then
     for profile in ${GF_AWS_PROFILES}; do
