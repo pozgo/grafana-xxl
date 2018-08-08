@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ENV \
-  GRAFANA_VERSION=4.5.0-beta1 \
+  GRAFANA_VERSION=5.3.0-27722pre1 \
   GF_PLUGIN_DIR=/grafana-plugins \
   UPGRADEALL=true
 
@@ -11,7 +11,7 @@ COPY ./run.sh /run.sh
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
-  curl https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
+  curl https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm /tmp/grafana.deb && \
   curl -L https://github.com/tianon/gosu/releases/download/1.7/gosu-amd64 > /usr/sbin/gosu && \
