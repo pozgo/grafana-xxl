@@ -1,15 +1,17 @@
-# Grafana XXL [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/monitoringartist/grafana-xxl)
+# Grafana XXL
 
-Official Grafana 3.0 with all preinstalled plugins from https://grafana.net/plugins.
+[![DockerHub pulls](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Pulls)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![GitHub stars](https://img.shields.io/github/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=GitHub%20Stars)](https://github.com/monitoringartist/grafana-xxl) [![DockerHub stars](https://img.shields.io/docker/stars/monitoringartist/grafana-xxl.svg?style=plastic&label=DockerHub%20Stars)](https://img.shields.io/docker/pulls/monitoringartist/grafana-xxl.svg) [![Commercial support ready](https://img.shields.io/badge/Commercial%20support-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
 
-![Grafana 3.0 XXL datasources and plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-3.0-datasources-plugins.png)
+Dockerized Grafana with all preinstalled plugins from https://grafana.net/plugins.
+
+![Grafana XXL datasources and plugins](https://raw.githubusercontent.com/monitoringartist/grafana-xxl/master/doc/grafana-xxl-datasources-plugins.png)
 
 Please donate to author, so he can continue to publish another awesome projects
 for free:
 
 [![Paypal donate button](http://jangaraj.com/img/github-donate-button02.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8LB6J222WRUZ4)
 
-# Running your Grafana 3.0 XXL Docker image
+# Running your Grafana XXL Docker image
 
 Start your image binding the external port 3000:
 
@@ -32,17 +34,34 @@ Try it out, default admin user is admin/admin.
 
 ## Running specific version of Grafana XXL
 
-    # specify right tag, e.g. 2.6 - see Docker Hub for available tags
+    # specify right tag, e.g. 2.6,3.1,dev (latest nigthly build) - see Docker Hub for available tags
     docker run \
       -d \
       -p 3000:3000 \
       --name grafana-xxl \
-      monitoringartist/grafana-xxl:2.6
+      monitoringartist/grafana-xxl:dev
       
+## Building Grafana XXL for ARM
+
+You need ARM-version Grafana's deb (for example from [here](https://github.com/fg2it/grafana-on-raspberry/releases)).
+Also you need ARM-version of gosu (from [here](https://github.com/tianon/gosu/releases))
+
+    # armhf
+    docker build \
+      --tag grafana-xxl \
+      --build-arg GRAFANA_DEB_URL=https://github.com/fg2it/grafana-on-raspberry/releases/download/v5.0.4/grafana_5.0.4_armhf.deb \
+      --build-arg GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-armhf .
+
+    # arm64
+    docker build \
+      --tag grafana-xxl \
+      --build-arg GRAFANA_DEB_URL=https://github.com/fg2it/grafana-on-raspberry/releases/download/v5.0.4/grafana_5.0.4_arm64.deb \
+      --build-arg GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-arm64 .
+
 ## Configuring your Grafana container
 
 All options defined in conf/grafana.ini can be overriden using environment
-variables, for example:
+variables by using the syntax GF_<SectionName>_<KeyName>. For example:
 
     docker run \
       -d \
@@ -52,7 +71,9 @@ variables, for example:
       -e "GF_SECURITY_ADMIN_PASSWORD=secret" \
       monitoringartist/grafana-xxl:latest
 
-## Configuring AWS credentials for CloudWatch support (only Grafana 3.0)
+More information in the grafana configuration documentation: http://docs.grafana.org/installation/configuration/
+
+## Configuring AWS credentials for CloudWatch support (only Grafana 3.+)
 
     docker run \
       -d \
@@ -91,9 +112,16 @@ Container tries to upgrade all installed plugins in the container automatically 
 
 # Author
 
-[Devops Monitoring zExpert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring'), who loves monitoring
-systems, which start with letter Z. Those are Zabbix and Zenoss.
+[Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
+who loves monitoring systems and cutting/bleeding edge technologies: Docker,
+Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsearch,
+Kibana, Prometheus, Sysdig, ...
 
-Professional monitoring services:
+Summary:
+* 1000+ [GitHub](https://github.com/monitoringartist/) stars
+* 6000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 800 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
-[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring')
+Professional devops / monitoring / consulting services:
+
+[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
