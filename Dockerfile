@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
-ARG GRAFANA_VERSION=5.3.0-27722pre1
+ARG GRAFANA_VERSION=latest-nigthly-build
 ARG GRAFANA_DEB_URL=https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana_${GRAFANA_VERSION}_${GRAFANA_ARCHITECTURE}.deb
 ARG GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-${GRAFANA_ARCHITECTURE}
 
@@ -21,15 +21,15 @@ COPY ./run.sh /run.sh
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
+  export GRAFANA_VERSION=$(curl -s https://grafana.com/api/grafana/versions?channel=nightly | jq -r '.items[0]["version"]') && \
   curl https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
-  curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
   curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
   for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   ### branding && \
-  sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.template.html && \
+  #sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.template.html && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.html && \
   sed -i 's#<title>Grafana - Error</title>#<title>Grafana XXL - Error</title>#g' /usr/share/grafana/public/views/error.html && \
   sed -i 's#icon-gf-grafana_wordmark"></i>#icon-gf-grafana_wordmark"> XXL</i>#g' /usr/share/grafana/public/app/partials/login.html && \
