@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
-ARG GRAFANA_VERSION=5.3.0-27722pre1
+ARG GRAFANA_VERSION=latest-nigthly-build
 ARG GRAFANA_DEB_URL=https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana_${GRAFANA_VERSION}_${GRAFANA_ARCHITECTURE}.deb
 ARG GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-${GRAFANA_ARCHITECTURE}
 
@@ -21,8 +21,8 @@ COPY ./run.sh /run.sh
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
+  export GRAFANA_VERSION=$(curl -s https://grafana.com/api/grafana/versions?channel=nightly | jq -r '.items[0]["version"]') && \
   curl https://s3-us-west-2.amazonaws.com/grafana-releases/master/grafana_${GRAFANA_VERSION}_amd64.deb > /tmp/grafana.deb && \
-  curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
   curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
