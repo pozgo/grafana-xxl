@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Jan Garaj info@monitoringartist.com
+MAINTAINER Vivek Lanjekar vivek.lanjekar@gmail.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
 ARG GRAFANA_VERSION=5.4.2
