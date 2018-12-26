@@ -29,10 +29,10 @@ RUN \
   chmod +x /usr/sbin/gosu && \
   for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   ### branding && \
-  sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.template.html && \
-  sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index.html && \
-  sed -i 's#<title>Grafana - Error</title>#<title>Grafana XXL - Error</title>#g' /usr/share/grafana/public/views/error.html && \
-  sed -i 's#icon-gf-grafana_wordmark"></i>#icon-gf-grafana_wordmark"> XXL</i>#g' /usr/share/grafana/public/app/partials/login.html && \
+  sed -i 's#<title>Grafana</title>#<title>Grafana GrabPay</title>#g' /usr/share/grafana/public/views/index.template.html && \
+  sed -i 's#<title>Grafana</title>#<title>Grafana Grabpay</title>#g' /usr/share/grafana/public/views/index.html && \
+  sed -i 's#<title>Grafana - Error</title>#<title>Grafana GrabPay - Error</title>#g' /usr/share/grafana/public/views/error.html && \
+  sed -i 's#icon-gf-grafana_wordmark"></i>#icon-gf-grafana_wordmark"> GrabPay</i>#g' /usr/share/grafana/public/app/partials/login.html && \
   chmod +x /run.sh && \
   mkdir -p /usr/share/grafana/.aws/ && \
   touch /usr/share/grafana/.aws/credentials && \
