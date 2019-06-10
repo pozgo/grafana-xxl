@@ -27,6 +27,7 @@ RUN \
   rm -f /tmp/grafana.deb && \
   curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
+  git clone https://github.com/AutohomeCorp/graph-compare-panel.git ${GF_PLUGIN_DIR}/graph-compare-panel && \ 
   for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   chmod +x /run.sh && \
   mkdir -p /usr/share/grafana/.aws/ && \
@@ -41,4 +42,3 @@ VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 EXPOSE 3000
 
 ENTRYPOINT ["/run.sh"]
-
