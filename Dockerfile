@@ -33,7 +33,6 @@ RUN \
   ### branding && \
   sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index-template.html && \
   sed -i 's#<title>Grafana - Error</title>#<title>Grafana XXL - Error</title>#g' /usr/share/grafana/public/views/error-template.html && \
-  sed -i 's#<div class="logo-wordmark" />#<div class="logo-wordmark"> XXL</div>#g' /usr/share/grafana/public/app/partials/login.html && \
   chmod +x /run.sh && \
   mkdir -p /usr/share/grafana/.aws/ && \
   touch /usr/share/grafana/.aws/credentials && \
