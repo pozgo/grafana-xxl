@@ -2,7 +2,7 @@ FROM debian:stretch
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
-ARG GRAFANA_VERSION=6.6.2
+ARG GRAFANA_VERSION=6.7.1
 ARG GRAFANA_DEB_URL=https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_${GRAFANA_ARCHITECTURE}.deb
 ARG GOSU_BIN_URL=https://github.com/tianon/gosu/releases/download/1.10/gosu-${GRAFANA_ARCHITECTURE}
 
@@ -23,7 +23,8 @@ COPY ./run.sh /run.sh
 
 RUN \
   apt-get update && \
-  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
+  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq \
+  libx11-6 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrender1 libxtst6 libglib2.0-0 libnss3 libcups2  libdbus-1-3 libxss1 libxrandr2 libgtk-3-0 libgtk-3-0 libasound2 && \
   curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
