@@ -23,17 +23,14 @@ COPY ./run.sh /run.sh
 
 RUN \
   apt-get update && \
-  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq && \
+  apt-get -y --force-yes --no-install-recommends install libfontconfig curl ca-certificates git jq \
+  libx11-6 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrender1 libxtst6 libglib2.0-0 libnss3 libcups2  libdbus-1-3 libxss1 libxrandr2 libgtk-3-0 libgtk-3-0 libasound2 && \
   curl -L ${GRAFANA_DEB_URL} > /tmp/grafana.deb && \
   dpkg -i /tmp/grafana.deb && \
   rm -f /tmp/grafana.deb && \
   curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
-  for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal=='false') | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
-  ### branding && \
-  ### sed -i 's#<title>Grafana</title>#<title>Grafana XXL</title>#g' /usr/share/grafana/public/views/index-template.html && \
-  ### sed -i 's#<title>Grafana - Error</title>#<title>Grafana XXL - Error</title>#g' /usr/share/grafana/public/views/error-template.html && \
-  ### sed -i 's#<div class="logo-wordmark" />#<div class="logo-wordmark"> XXL</div>#g' /usr/share/grafana/public/app/partials/login.html && \
+  for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal == false) | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   chmod +x /run.sh && \
   mkdir -p /usr/share/grafana/.aws/ && \
   touch /usr/share/grafana/.aws/credentials && \
@@ -41,6 +38,11 @@ RUN \
   apt-get autoremove -y --allow-downgrades --allow-remove-essential --allow-change-held-packages && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
+
+### branding
+RUN \
+  sed -i 's/<title>\[\[\.AppTitle\]\]<\/title>/<title>Grafana XXL<\/title>/g' /usr/share/grafana/public/views/index-template.html && \
+  sed -i 's/<title>Grafana - Error<\/title>/<title>Grafana XXL - Error<\/title>/g' /usr/share/grafana/public/views/error-template.html
 
 VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 
