@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:bullseye
 MAINTAINER Jan Garaj info@monitoringartist.com
 
 ARG GRAFANA_ARCHITECTURE=amd64
