@@ -43,6 +43,8 @@ RUN \
 RUN \
   sed -i 's/<title>\[\[\.AppTitle\]\]<\/title>/<title>Grafana XXL<\/title>/g' /usr/share/grafana/public/views/index-template.html && \
   sed -i 's/<title>Grafana - Error<\/title>/<title>Grafana XXL - Error<\/title>/g' /usr/share/grafana/public/views/error-template.html
+  
+COPY ./grafana.ini /etc/grafana/grafana.ini
 
 VOLUME ["/var/lib/grafana", "/var/log/grafana", "/etc/grafana"]
 
