@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER Jan Garaj info@monitoringartist.com
+LABEL MAINTAINER="Jan Garaj info@monitoringartist.com"
 
 ARG GRAFANA_ARCHITECTURE=amd64
 ARG GRAFANA_VERSION=8.3.3
@@ -30,7 +30,8 @@ RUN \
   rm -f /tmp/grafana.deb && \
   curl -L ${GOSU_BIN_URL} > /usr/sbin/gosu && \
   chmod +x /usr/sbin/gosu && \
-  for plugin in $(curl -s https://grafana.net/api/plugins?orderBy=name | jq '.items[] | select(.internal == false) | .slug' | tr -d '"'); do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
+  for plugin in $(curl -s https://grafana.com/api/plugins?orderBy=name | jq '.items[] | select(.internal == false) | .slug' | tr -d '"'); \ 
+  do grafana-cli --pluginsDir "${GF_PLUGIN_DIR}" plugins install $plugin; done && \
   chmod +x /run.sh && \
   mkdir -p /usr/share/grafana/.aws/ && \
   touch /usr/share/grafana/.aws/credentials && \
